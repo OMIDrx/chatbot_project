@@ -3,9 +3,7 @@ import utils
 
 st.title(':llama: Offline Chatbot Project')
 
-# -------------------------------
-# Initialize Chat History
-# -------------------------------
+
 if 'messages' not in st.session_state:
 
     st.session_state['messages'] = [
@@ -15,9 +13,7 @@ if 'messages' not in st.session_state:
         }
     ]
 
-# -------------------------------
 # Reset Memory Button
-# -------------------------------
 if st.button('🗑️ Reset Memory'):
 
     st.session_state['messages'] = [
@@ -29,21 +25,18 @@ if st.button('🗑️ Reset Memory'):
 
     st.rerun()
 
-# -------------------------------
 # Show Chat Messages
-# -------------------------------
 for msg in st.session_state['messages']:
 
     st.chat_message(msg['role']).write(msg['content'])
 
-# -------------------------------
 # Model Name
-# -------------------------------
+
 model = 'qwen2.5-coder:7b'
 
-# -------------------------------
+
 # User Input
-# -------------------------------
+
 prompt = st.chat_input('Enter Your Question:')
 
 if prompt:
@@ -59,9 +52,9 @@ if prompt:
     # lower case text
     prompt_lower = prompt.lower()
 
-    # -------------------------------
+
     # Exit Chat
-    # -------------------------------
+  
     if 'خداحافظ' in prompt_lower:
 
         answer = 'خداحافظ 👋 امیدوارم دوباره شما را ببینم.'
@@ -75,9 +68,9 @@ if prompt:
 
         st.stop()
 
-    # -------------------------------
+
     # Religion Questions
-    # -------------------------------
+
     elif 'مذهب' in prompt_lower or 'دین' in prompt_lower:
 
         answer = 'متاسفم، من به سوالات مربوط به مذهب پاسخ نمی‌دهم.'
@@ -89,9 +82,8 @@ if prompt:
             'content': answer
         })
 
-    # -------------------------------
     # Politics Questions
-    # -------------------------------
+
     elif 'سیاست' in prompt_lower or 'انتخابات' in prompt_lower:
 
         answer = 'متاسفم، پاسخ به سوالات سیاسی برای من امکان‌پذیر نیست.'
@@ -103,9 +95,9 @@ if prompt:
             'content': answer
         })
 
-    # -------------------------------
+
     # War Questions
-    # -------------------------------
+
     elif 'جنگ' in prompt_lower or 'سلاح' in prompt_lower:
 
         answer = 'من درباره موضوعات مربوط به جنگ اطلاعاتی ارائه نمی‌کنم.'
@@ -117,9 +109,8 @@ if prompt:
             'content': answer
         })
 
-    # -------------------------------
     # Normal Questions
-    # -------------------------------
+   
     else:
 
         prompt2 = f"""
