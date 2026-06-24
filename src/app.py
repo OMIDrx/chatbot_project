@@ -9,15 +9,6 @@ messege = st.chat_message('ai').write('How can i help you')
 messege_user = st.chat_message('user').write('who is ronaldo') #human
 
 
-#with st.spinner('wait for answer...'):
-#    time.sleep(6)
-#st.write('Done')
-
-# counter = 0
-# if st.button('ADD'):
-#     counter += 1
-#     st.write(f'counter: {counter}')
-
 st.write(f'session_state: {st.session_state}')
 if 'counter' not in st.session_state:
     st.session_state['counter'] = 0
