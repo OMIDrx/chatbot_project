@@ -7,7 +7,6 @@ if 'messages' not in st.session_state:
     st.session_state['messages'] = [{'role':'assistant', 
                                      'content':'How can I Help You'}]
     
-#st.chat_message('assistant').write('How can I Help You') 
 for msg in st.session_state['messages']:
     st.chat_message(msg['role']).write(msg['content'])
 model = 'qwen2.5-coder:7b'
